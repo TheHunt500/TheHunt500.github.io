@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hunt 500</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #151515;
+            color: #1ceb09;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer" id="countdown-timer" style="text-align: center; font-size: 5vw; margin-top: 3vw; font-weight: 1000;">
+        00d 00h 00m 00s
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("January 1, 2025 00:00:00").getTime(); // Target date: January 1st, 2025
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            // Time calculations
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown-timer").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // If the countdown is finished
+            if (timeRemaining < 0) {
+                document.getElementById("countdown-timer").innerHTML = "Happy New Year!";
+            }
+        }
+
+        // Update the countdown every 1 second
+        setInterval(updateCountdown, 1000);
+
+        // Initialize the countdown on page load
+        updateCountdown();
+    </script>
+
+
+    <p style="font-size: 2vw; margin: 5vw;">Good Job! You Cracked the first Puzzle! The next Puzzle is in this page, Find it to progress to the next level and win 500php Good Luck!</p>
+    <p style="font-size: 0.1vw; color: #151515;">Text Me(Aidan Miguel M. Lausin): QrCode500</p>
+</body>
+</html>
